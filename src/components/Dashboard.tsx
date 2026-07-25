@@ -142,14 +142,17 @@ export default function Dashboard() {
           >
             刷新
           </button>
-          <button
-            type="button"
-            disabled={busy}
-            onClick={scan}
-            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[#062033] disabled:opacity-50"
-          >
-            {busy ? "扫描中…" : "立即扫描"}
-          </button>
+          {/* On Vercel, scan/reset require a secret; Actions owns the scanner */}
+          {!data?.meta?.onVercel && (
+            <button
+              type="button"
+              disabled={busy}
+              onClick={scan}
+              className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[#062033] disabled:opacity-50"
+            >
+              {busy ? "扫描中…" : "立即扫描"}
+            </button>
+          )}
         </div>
       </header>
 
