@@ -33,9 +33,7 @@ function blankState(): SimState {
   };
 }
 
-/** Public raw URL of committed state (GitHub Actions writes this file). */
-export function resolveGithubStateUrl(): string | null {
-  if (process.env.SIM_STATE_URL) return process.env.SIM_STATE_URL;
+function resolveGithubRepo(): { owner: string; repo: string; branch: string } | null {
   const owner =
     process.env.SIM_REPO_OWNER ||
     process.env.VERCEL_GIT_REPO_OWNER ||
@@ -49,7 +47,15 @@ export function resolveGithubStateUrl(): string | null {
     process.env.VERCEL_GIT_COMMIT_REF ||
     "main";
   if (!owner || !repo) return null;
-  return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/data/sim-state.json`;
+  return { owner, repo, branch };
+}
+
+/** Public URL used for dashboard meta / optional custom override. */
+export function resolveGithubStateUrl(): string | null {
+  if (process.env.SIM_STATE_URL) return process.env.SIM_STATE_URL;
+  const ref = resolveGithubRepo();
+  if (!ref) return null;
+  return `https://raw.githubusercontent.com/${ref.owner}/${ref.repo}/${ref.branch}/data/sim-state.json`;
 }
 
 async function kvGet(): Promise<SimState | null> {
@@ -83,16 +89,53 @@ async function kvSet(state: SimState): Promise<boolean> {
   return res.ok;
 }
 
+/** Avoid hammering GitHub API on every dashboard poll (20s client interval). */
+let remoteCache: { at: number; state: SimState } | null = null;
+const REMOTE_CACHE_MS = 20_000;
+
 async function remoteGet(): Promise<SimState | null> {
+  if (remoteCache && Date.now() - remoteCache.at < REMOTE_CACHE_MS) {
+    return remoteCache.state;
+  }
+
+  // Prefer Contents API: raw.githubusercontent.com CDN often serves stale branch tips.
+  if (!process.env.SIM_STATE_URL) {
+    const ref = resolveGithubRepo();
+    if (ref) {
+      const apiUrl = `https://api.github.com/repos/${ref.owner}/${ref.repo}/contents/data/sim-state.json?ref=${encodeURIComponent(ref.branch)}`;
+      const headers: Record<string, string> = {
+        Accept: "application/vnd.github.raw",
+        "User-Agent": "polymarket-calendar-sim",
+        "X-GitHub-Api-Version": "2022-11-28",
+      };
+      const token = process.env.SIM_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
+      if (token) headers.Authorization = `Bearer ${token}`;
+
+      const res = await fetch(apiUrl, { cache: "no-store", headers });
+      if (res.ok) {
+        try {
+          const state = (await res.json()) as SimState;
+          remoteCache = { at: Date.now(), state };
+          return state;
+        } catch {
+          /* fall through */
+        }
+      }
+    }
+  }
+
   const url = resolveGithubStateUrl();
   if (!url) return null;
+  // Legacy/custom URL path (or API failed). raw CDN may lag behind pushes.
   const res = await fetch(`${url}?t=${Date.now()}`, {
     cache: "no-store",
     headers: { Accept: "application/json", "User-Agent": "polymarket-calendar-sim" },
   });
   if (!res.ok) return null;
   try {
-    return (await res.json()) as SimState;
+    const state = (await res.json()) as SimState;
+    remoteCache = { at: Date.now(), state };
+    return state;
   } catch {
     return null;
   }
@@ -115,8 +158,8 @@ async function fileSet(state: SimState): Promise<void> {
 /**
  * Load priority:
  * 1) Upstash/KV (optional)
- * 2) On Vercel: GitHub raw FIRST (Actions writes latest), then baked file
- * 3) Local/Actions: file FIRST, then GitHub raw
+ * 2) On Vercel: GitHub Contents API FIRST (Actions writes latest), then baked file
+ * 3) Local/Actions: file FIRST, then GitHub remote
  * 4) Blank
  */
 export async function loadState(): Promise<SimState> {
