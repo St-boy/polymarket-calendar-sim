@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg0: #0c1118;
+  --bg1: #121a24;
+  --bg2: #1a2433;
+  --line: #2a3a4f;
+  --text: #e8eef6;
+  --muted: #8fa3b8;
+  --good: #3ecf8e;
+  --bad: #f07178;
+  --accent: #5bc0eb;
+  --warn: #e6b84d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1a3350 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #163028 0%, transparent 50%),
+    var(--bg0);
+  color: var(--text);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+}
+
+.mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(26, 36, 51, 0.95), rgba(18, 26, 36, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.pos {
+  color: var(--good);
+}
+.neg {
+  color: var(--bad);
 }

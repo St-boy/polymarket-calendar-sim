@@ -1,0 +1,48 @@
+name: Paper scan (order book)
+
+on:
+  schedule:
+    # Every 15 minutes (GitHub may delay a few minutes)
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Run paper scan
+        env:
+          SIM_WRITE_FILE: "1"
+        run: npm run scan
+
+      - name: Commit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sim-state.json
+          if git diff --staged --quiet; then
+            echo "No state changes"
+            exit 0
+          fi
+          git commit -m "chore(sim): update paper state $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
