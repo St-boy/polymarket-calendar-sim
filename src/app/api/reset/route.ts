@@ -6,7 +6,14 @@ export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const secret = process.env.CRON_SECRET || process.env.SCAN_SECRET;
-  if (secret) {
+  if (!secret) {
+    if (process.env.VERCEL === "1") {
+      return NextResponse.json(
+        { error: "unauthorized: set CRON_SECRET or SCAN_SECRET" },
+        { status: 401 },
+      );
+    }
+  } else {
     const header = req.headers.get("authorization") || "";
     if (header !== `Bearer ${secret}`) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });

@@ -8,14 +8,21 @@ export const runtime = "nodejs";
 export async function GET() {
   try {
     const data = await getDashboard();
-    return NextResponse.json({
-      ...data,
-      meta: {
-        stateUrl: resolveGithubStateUrl(),
-        onVercel: process.env.VERCEL === "1",
-        scanner: "github-actions",
+    return NextResponse.json(
+      {
+        ...data,
+        meta: {
+          stateUrl: resolveGithubStateUrl(),
+          onVercel: process.env.VERCEL === "1",
+          scanner: "github-actions",
+        },
       },
-    });
+      {
+        headers: {
+          "Cache-Control": "no-store, max-age=0",
+        },
+      },
+    );
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
     return NextResponse.json({ error: message }, { status: 500 });

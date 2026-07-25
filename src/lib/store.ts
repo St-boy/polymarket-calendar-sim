@@ -115,19 +115,28 @@ async function fileSet(state: SimState): Promise<void> {
 /**
  * Load priority:
  * 1) Upstash/KV (optional)
- * 2) Local file (Actions / local dev)
- * 3) GitHub raw URL (Vercel dashboard read path)
+ * 2) On Vercel: GitHub raw FIRST (Actions writes latest), then baked file
+ * 3) Local/Actions: file FIRST, then GitHub raw
  * 4) Blank
  */
 export async function loadState(): Promise<SimState> {
   const fromKv = await kvGet();
   if (fromKv) return fromKv;
 
-  const fromFile = await fileGet();
-  if (fromFile) return fromFile;
+  const onVercel = process.env.VERCEL === "1";
 
-  const fromRemote = await remoteGet();
-  if (fromRemote) return fromRemote;
+  if (onVercel) {
+    // Critical: never prefer the deploy-time baked data/sim-state.json
+    const fromRemote = await remoteGet();
+    if (fromRemote) return fromRemote;
+    const fromFile = await fileGet();
+    if (fromFile) return fromFile;
+  } else {
+    const fromFile = await fileGet();
+    if (fromFile) return fromFile;
+    const fromRemote = await remoteGet();
+    if (fromRemote) return fromRemote;
+  }
 
   return blankState();
 }

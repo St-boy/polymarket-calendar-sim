@@ -5,11 +5,18 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 export const maxDuration = 300;
 
-/** Vercel Cron hits this every few minutes. */
+/** Optional Vercel Cron fallback (primary scanner is GitHub Actions). */
 export async function GET(req: Request) {
   const secret = process.env.CRON_SECRET;
   const auth = req.headers.get("authorization");
-  if (secret && auth !== `Bearer ${secret}`) {
+  if (!secret) {
+    if (process.env.VERCEL === "1") {
+      return NextResponse.json(
+        { error: "unauthorized: set CRON_SECRET" },
+        { status: 401 },
+      );
+    }
+  } else if (auth !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
   try {

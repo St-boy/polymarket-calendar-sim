@@ -7,7 +7,8 @@ export const maxDuration = 300;
 
 function authorized(req: Request): boolean {
   const secret = process.env.CRON_SECRET || process.env.SCAN_SECRET;
-  if (!secret) return true; // local/dev open
+  // On Vercel, require a secret so strangers cannot burn scan quota / mutate KV
+  if (!secret) return process.env.VERCEL !== "1";
   const header = req.headers.get("authorization") || "";
   const q = new URL(req.url).searchParams.get("secret");
   return header === `Bearer ${secret}` || q === secret;

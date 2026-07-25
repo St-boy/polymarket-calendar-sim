@@ -44,5 +44,7 @@ jobs:
             echo "No state changes"
             exit 0
           fi
-          git commit -m "chore(sim): update paper state $(date -u +%Y-%m-%dT%H:%MZ)"
+          # [skip vercel] avoids redeploying the dashboard every 15 minutes
+          git commit -m "chore(sim): update paper state $(date -u +%Y-%m-%dT%H:%MZ) [skip vercel]"
+          git pull --rebase origin main
           git push
