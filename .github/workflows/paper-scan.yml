@@ -1,10 +1,11 @@
 name: Paper scan (order book)
 
 on:
-  schedule:
-    # Every 15 minutes (GitHub may delay a few minutes)
-    - cron: "*/15 * * * *"
+  # Primary: external cron (cron-job.org) hits /api/trigger-scan → workflow_dispatch
   workflow_dispatch:
+  # Backup only — GitHub schedule is often ~hourly, not reliable at */15
+  schedule:
+    - cron: "7 * * * *"
 
 permissions:
   contents: write
@@ -44,7 +45,7 @@ jobs:
             echo "No state changes"
             exit 0
           fi
-          # [skip vercel] avoids redeploying the dashboard every 15 minutes
+          # [skip vercel] avoids redeploying the dashboard every scan
           git commit -m "chore(sim): update paper state $(date -u +%Y-%m-%dT%H:%MZ) [skip vercel]"
           git pull --rebase origin main
           git push
