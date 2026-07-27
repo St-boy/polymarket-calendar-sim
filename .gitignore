@@ -7,3 +7,6 @@
 /out
 .env*.local
 npm-debug.log*
+
+# local Windows scan trigger log
+/data/windows-scan-trigger.log
