@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-08-24T10:15:44.691Z",
+  "updatedAt": "2026-08-24T10:30:45.838Z",
   "cashUsd": 2757.88802,
   "realizedPnlUsd": 0,
   "positions": [
@@ -62,20 +62,13 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -439.9398000000001,
-      "unrealizedPnlUsd": -182.05178000000024,
+      "markProceedsUsd": -439.99440000000004,
+      "unrealizedPnlUsd": -182.10638000000017,
       "entryExecEdge": 0.15004393890909073
     }
   ],
   "closedTrades": [],
   "equityCurve": [
-    {
-      "t": "2026-08-20T03:45:37.962Z",
-      "equity": 2500,
-      "cash": 2500,
-      "unrealized": 0,
-      "realized": 0
-    },
     {
       "t": "2026-08-20T03:54:43.407Z",
       "equity": 2500,
@@ -3568,9 +3561,26 @@
       "cash": 2757.88802,
       "unrealized": -182.05178000000024,
       "realized": 0
+    },
+    {
+      "t": "2026-08-24T10:30:44.002Z",
+      "equity": 2575.7816399999997,
+      "cash": 2757.88802,
+      "unrealized": -182.10638000000017,
+      "realized": 0
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-08-24T10:30:45.838Z",
+      "message": "Scan done · opps=1 open=1 equity=$2575.78",
+      "level": "info"
+    },
+    {
+      "t": "2026-08-24T10:30:44.002Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-08-24T10:15:44.691Z",
       "message": "Scan done · opps=1 open=1 equity=$2575.84",
@@ -4560,16 +4570,6 @@
       "t": "2026-08-23T13:45:31.889Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-08-23T13:39:38.547Z",
-      "message": "Scan done · opps=1 open=1 equity=$2581.57",
-      "level": "info"
-    },
-    {
-      "t": "2026-08-23T13:39:38.244Z",
-      "message": "OPEN SpaceX Starship Flight Test 14 October 31→Super Heavy booster explodes? edge=15.00c cost=$-257.89 shares=1718.75",
-      "level": "trade"
     }
   ],
   "config": {
@@ -4577,5 +4577,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-08-24T10:15:40.944Z"
+  "lastScanAt": "2026-08-24T10:30:44.002Z"
 }
