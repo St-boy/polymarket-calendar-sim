@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-08-25T15:15:40.124Z",
+  "updatedAt": "2026-08-25T15:30:49.951Z",
   "cashUsd": 2757.88802,
   "realizedPnlUsd": 0,
   "positions": [
@@ -62,20 +62,13 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -400.94264999999996,
-      "unrealizedPnlUsd": -143.0546300000001,
+      "markProceedsUsd": -404.64540999999986,
+      "unrealizedPnlUsd": -146.75739,
       "entryExecEdge": 0.15004393890909073
     }
   ],
   "closedTrades": [],
   "equityCurve": [
-    {
-      "t": "2026-08-21T08:52:24.519Z",
-      "equity": 2500,
-      "cash": 2500,
-      "unrealized": 0,
-      "realized": 0
-    },
     {
       "t": "2026-08-21T09:00:53.721Z",
       "equity": 2500,
@@ -3568,9 +3561,26 @@
       "cash": 2757.88802,
       "unrealized": -143.0546300000001,
       "realized": 0
+    },
+    {
+      "t": "2026-08-25T15:30:47.776Z",
+      "equity": 2611.1306299999997,
+      "cash": 2757.88802,
+      "unrealized": -146.75739,
+      "realized": 0
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-08-25T15:30:49.951Z",
+      "message": "Scan done · opps=0 open=1 equity=$2611.13",
+      "level": "info"
+    },
+    {
+      "t": "2026-08-25T15:30:47.777Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-08-25T15:15:40.124Z",
       "message": "Scan done · opps=0 open=1 equity=$2614.83",
@@ -4560,16 +4570,6 @@
       "t": "2026-08-24T18:52:49.284Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-08-24T18:45:41.829Z",
-      "message": "Scan done · opps=0 open=1 equity=$2586.51",
-      "level": "info"
-    },
-    {
-      "t": "2026-08-24T18:45:39.538Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4577,5 +4577,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-08-25T15:15:38.644Z"
+  "lastScanAt": "2026-08-25T15:30:47.776Z"
 }
