@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-08-27T11:00:50.048Z",
+  "updatedAt": "2026-08-27T11:15:35.709Z",
   "cashUsd": 2757.88802,
   "realizedPnlUsd": 0,
   "positions": [
@@ -62,20 +62,13 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -434.7705199999996,
-      "unrealizedPnlUsd": -176.8824999999997,
+      "markProceedsUsd": -439.36017000000015,
+      "unrealizedPnlUsd": -181.47215000000028,
       "entryExecEdge": 0.15004393890909073
     }
   ],
   "closedTrades": [],
   "equityCurve": [
-    {
-      "t": "2026-08-23T01:00:49.819Z",
-      "equity": 2500,
-      "cash": 2500,
-      "unrealized": 0,
-      "realized": 0
-    },
     {
       "t": "2026-08-23T01:15:33.661Z",
       "equity": 2500,
@@ -3568,9 +3561,26 @@
       "cash": 2757.88802,
       "unrealized": -176.8824999999997,
       "realized": 0
+    },
+    {
+      "t": "2026-08-27T11:15:34.388Z",
+      "equity": 2576.41587,
+      "cash": 2757.88802,
+      "unrealized": -181.47215000000028,
+      "realized": 0
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-08-27T11:15:35.709Z",
+      "message": "Scan done · opps=0 open=1 equity=$2576.42",
+      "level": "info"
+    },
+    {
+      "t": "2026-08-27T11:15:34.389Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-08-27T11:00:50.048Z",
       "message": "Scan done · opps=0 open=1 equity=$2581.01",
@@ -4560,16 +4570,6 @@
       "t": "2026-08-26T11:37:50.072Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-08-26T11:30:47.181Z",
-      "message": "Scan done · opps=0 open=1 equity=$2562.00",
-      "level": "info"
-    },
-    {
-      "t": "2026-08-26T11:30:45.329Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4577,5 +4577,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-08-27T11:00:47.448Z"
+  "lastScanAt": "2026-08-27T11:15:34.388Z"
 }
