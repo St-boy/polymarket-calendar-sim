@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-08-30T07:15:37.995Z",
+  "updatedAt": "2026-08-30T07:30:40.413Z",
   "cashUsd": 2757.88802,
   "realizedPnlUsd": 0,
   "positions": [
@@ -62,20 +62,13 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -402.6554600000004,
-      "unrealizedPnlUsd": -144.76744000000053,
+      "markProceedsUsd": -396.0769599999994,
+      "unrealizedPnlUsd": -138.18893999999955,
       "entryExecEdge": 0.15004393890909073
     }
   ],
   "closedTrades": [],
   "equityCurve": [
-    {
-      "t": "2026-08-25T11:15:36.254Z",
-      "equity": 2609.5160799999994,
-      "cash": 2757.88802,
-      "unrealized": -148.37194000000022,
-      "realized": 0
-    },
     {
       "t": "2026-08-25T11:30:45.742Z",
       "equity": 2611.17954,
@@ -3568,9 +3561,26 @@
       "cash": 2757.88802,
       "unrealized": -144.76744000000053,
       "realized": 0
+    },
+    {
+      "t": "2026-08-30T07:30:38.246Z",
+      "equity": 2619.6990800000003,
+      "cash": 2757.88802,
+      "unrealized": -138.18893999999955,
+      "realized": 0
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-08-30T07:30:40.413Z",
+      "message": "Scan done · opps=1 open=1 equity=$2619.70",
+      "level": "info"
+    },
+    {
+      "t": "2026-08-30T07:30:38.246Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-08-30T07:15:37.995Z",
       "message": "Scan done · opps=1 open=1 equity=$2613.12",
@@ -4560,16 +4570,6 @@
       "t": "2026-08-29T08:16:09.161Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-08-29T08:00:47.401Z",
-      "message": "Scan done · opps=0 open=1 equity=$2605.16",
-      "level": "info"
-    },
-    {
-      "t": "2026-08-29T08:00:46.001Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4577,5 +4577,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-08-30T07:15:35.951Z"
+  "lastScanAt": "2026-08-30T07:30:38.246Z"
 }
