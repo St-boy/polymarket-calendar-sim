@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-09-03T23:07:45.140Z",
-  "cashUsd": 2757.88802,
+  "updatedAt": "2026-09-03T23:15:38.798Z",
+  "cashUsd": 2781.9178296666664,
   "realizedPnlUsd": 0,
   "positions": [
     {
@@ -62,20 +62,74 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -399.1424100000004,
-      "unrealizedPnlUsd": -141.2543900000005,
+      "markProceedsUsd": -398.0974100000003,
+      "unrealizedPnlUsd": -140.20939000000044,
       "entryExecEdge": 0.15004393890909073
+    },
+    {
+      "id": "t_mtm58a2k_ejc7pn",
+      "status": "open",
+      "openedAt": "2026-09-03T23:15:38.108Z",
+      "opportunity": {
+        "event": "OpenAI's Astra released on...?",
+        "eventSlug": "openais-astra-released-onptptpt-20260901080122046",
+        "eventUrl": "https://polymarket.com/event/openais-astra-released-onptptpt-20260901080122046",
+        "curve": "by",
+        "nearLabel": "September 4",
+        "farLabel": "September 5",
+        "nearQuestion": "Will OpenAI's Astra model be released on September 4, 2026?",
+        "farQuestion": "Will OpenAI's Astra model be released on September 5, 2026?",
+        "nearEnd": "2026-09-04",
+        "farEnd": "2026-09-05",
+        "nearYesToken": "96413546966330134196909132513275220087587194221800703127256598585240061406455",
+        "farYesToken": "53761367449665157936048066110971922675113994222426813739965807937816560695339",
+        "nearNoToken": "87851268737954469679548923395486510153330334621997911917598690792845195883927",
+        "farNoToken": "77310414564963972491445829330394756503171161043298796821402433411919739190133",
+        "execEdge": 0.11900000000000002,
+        "nearBid": 0.329,
+        "nearAsk": 0.379,
+        "farBid": 0.012,
+        "farAsk": 0.21,
+        "capacityUsd": 128.1463,
+        "tradeHint": "买远端YES(吃ask) + 卖近端YES(吃bid)"
+      },
+      "targetShares": 213.57716666666664,
+      "entryLegs": [
+        {
+          "tokenId": "53761367449665157936048066110971922675113994222426813739965807937816560695339",
+          "outcome": "YES",
+          "side": "buy",
+          "role": "far",
+          "shares": 213.57716666666664,
+          "avgPrice": 0.21030690156485202,
+          "bestPrice": 0.21,
+          "worstPrice": 0.211,
+          "slippage": 0.0003069015648520246,
+          "usd": 44.916752166666654,
+          "levelsUsed": 2
+        },
+        {
+          "tokenId": "96413546966330134196909132513275220087587194221800703127256598585240061406455",
+          "outcome": "YES",
+          "side": "sell",
+          "role": "near",
+          "shares": 213.57716666666664,
+          "avgPrice": 0.3228180376647628,
+          "bestPrice": 0.329,
+          "worstPrice": 0.317,
+          "slippage": 0.006181962335237212,
+          "usd": 68.94656183333332,
+          "levelsUsed": 3
+        }
+      ],
+      "entryCostUsd": -24.029809666666665,
+      "markProceedsUsd": -96.4796865,
+      "unrealizedPnlUsd": -72.44987683333333,
+      "entryExecEdge": 0.11251113609991079
     }
   ],
   "closedTrades": [],
   "equityCurve": [
-    {
-      "t": "2026-08-30T00:15:38.608Z",
-      "equity": 2634.3570299999997,
-      "cash": 2757.88802,
-      "unrealized": -123.5309900000002,
-      "realized": 0
-    },
     {
       "t": "2026-08-30T00:30:40.070Z",
       "equity": 2634.9626500000004,
@@ -3568,9 +3622,31 @@
       "cash": 2757.88802,
       "unrealized": -141.2543900000005,
       "realized": 0
+    },
+    {
+      "t": "2026-09-03T23:15:33.607Z",
+      "equity": 2569.2585628333327,
+      "cash": 2781.9178296666664,
+      "unrealized": -212.6592668333338,
+      "realized": 0
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-09-03T23:15:38.797Z",
+      "message": "Scan done · opps=8 open=2 equity=$2569.26",
+      "level": "info"
+    },
+    {
+      "t": "2026-09-03T23:15:38.321Z",
+      "message": "OPEN OpenAI's Astra released on...? September 4→September 5 edge=11.25c cost=$-24.03 shares=213.58",
+      "level": "trade"
+    },
+    {
+      "t": "2026-09-03T23:15:33.607Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-09-03T23:07:45.140Z",
       "message": "Scan done · opps=7 open=1 equity=$2616.63",
@@ -4555,21 +4631,6 @@
       "t": "2026-09-03T00:30:49.223Z",
       "message": "Scan done · opps=0 open=1 equity=$2621.74",
       "level": "info"
-    },
-    {
-      "t": "2026-09-03T00:30:47.450Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
-    },
-    {
-      "t": "2026-09-03T00:15:35.037Z",
-      "message": "Scan done · opps=0 open=1 equity=$2614.09",
-      "level": "info"
-    },
-    {
-      "t": "2026-09-03T00:15:33.488Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4577,5 +4638,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-09-03T23:07:41.044Z"
+  "lastScanAt": "2026-09-03T23:15:33.607Z"
 }
