@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-09-04T21:45:57.532Z",
+  "updatedAt": "2026-09-04T22:00:47.952Z",
   "cashUsd": 6244.562238516666,
   "realizedPnlUsd": 7.764950416666661,
   "positions": [
@@ -62,8 +62,8 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -413.0282500000003,
-      "unrealizedPnlUsd": -155.14023000000043,
+      "markProceedsUsd": -414.95988000000034,
+      "unrealizedPnlUsd": -157.07186000000047,
       "entryExecEdge": 0.15004393890909073
     },
     {
@@ -319,13 +319,6 @@
     }
   ],
   "equityCurve": [
-    {
-      "t": "2026-08-30T23:15:37.633Z",
-      "equity": 2600.37621,
-      "cash": 2757.88802,
-      "unrealized": -157.51180999999997,
-      "realized": 0
-    },
     {
       "t": "2026-08-30T23:24:31.293Z",
       "equity": 2606.3129799999997,
@@ -3818,9 +3811,31 @@
       "cash": 6244.562238516666,
       "unrealized": -193.8338619000001,
       "realized": 7.764950416666661
+    },
+    {
+      "t": "2026-09-04T22:00:44.672Z",
+      "equity": 6048.7967466166665,
+      "cash": 6244.562238516666,
+      "unrealized": -195.76549190000014,
+      "realized": 7.764950416666661
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-09-04T22:00:47.952Z",
+      "message": "Scan done · opps=2 open=2 equity=$6048.80",
+      "level": "info"
+    },
+    {
+      "t": "2026-09-04T22:00:47.435Z",
+      "message": "Skip OpenAI's Astra released on...? September 4→September 30: size too small $15.51",
+      "level": "warn"
+    },
+    {
+      "t": "2026-09-04T22:00:44.672Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-09-04T21:45:57.532Z",
       "message": "Scan done · opps=2 open=2 equity=$6050.73",
@@ -4805,21 +4820,6 @@
       "t": "2026-09-04T04:37:27.255Z",
       "message": "Scan done · opps=4 open=2 equity=$2641.06",
       "level": "info"
-    },
-    {
-      "t": "2026-09-04T04:37:26.841Z",
-      "message": "Skip OpenAI's Astra released on...? September 9→September 10: size too small $7.04",
-      "level": "warn"
-    },
-    {
-      "t": "2026-09-04T04:37:24.000Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
-    },
-    {
-      "t": "2026-09-04T04:22:01.797Z",
-      "message": "Scan done · opps=4 open=2 equity=$2639.11",
-      "level": "info"
     }
   ],
   "config": {
@@ -4827,5 +4827,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-09-04T21:45:53.814Z"
+  "lastScanAt": "2026-09-04T22:00:44.672Z"
 }
