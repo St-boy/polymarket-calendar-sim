@@ -1,9 +1,9 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-09-04T18:30:49.449Z",
-  "cashUsd": 2794.090708981481,
-  "realizedPnlUsd": 22.176223666666665,
+  "updatedAt": "2026-09-04T18:45:39.349Z",
+  "cashUsd": 2765.652970416666,
+  "realizedPnlUsd": 7.764950416666661,
   "positions": [
     {
       "id": "t_mt5ut5xt_ovlcap",
@@ -62,13 +62,15 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -408.7500200000002,
-      "unrealizedPnlUsd": -150.8620000000003,
+      "markProceedsUsd": -408.29069000000027,
+      "unrealizedPnlUsd": -150.4026700000004,
       "entryExecEdge": 0.15004393890909073
-    },
+    }
+  ],
+  "closedTrades": [
     {
       "id": "t_mtmu4g3e_1tcv55",
-      "status": "open",
+      "status": "closed",
       "openedAt": "2026-09-04T10:52:29.690Z",
       "opportunity": {
         "event": "OpenAI's Astra released on...?",
@@ -123,12 +125,43 @@
         }
       ],
       "entryCostUsd": -14.026465314814814,
-      "markProceedsUsd": -24.91887066666667,
-      "unrealizedPnlUsd": -10.892405351851856,
-      "entryExecEdge": 0.03722300279350989
-    }
-  ],
-  "closedTrades": [
+      "markProceedsUsd": -28.43773856481482,
+      "unrealizedPnlUsd": 0,
+      "entryExecEdge": 0.03722300279350989,
+      "closedAt": "2026-09-04T18:45:39.146Z",
+      "exitLegs": [
+        {
+          "tokenId": "1081322525891663065685857602195229063279271498513817546738089748980034402506",
+          "outcome": "YES",
+          "side": "sell",
+          "role": "far",
+          "shares": 376.8225092592593,
+          "avgPrice": 0.017610366934958644,
+          "bestPrice": 0.018,
+          "worstPrice": 0.017,
+          "slippage": 0.0003896330650413546,
+          "usd": 6.635982657407407,
+          "levelsUsed": 2
+        },
+        {
+          "tokenId": "53761367449665157936048066110971922675113994222426813739965807937816560695339",
+          "outcome": "YES",
+          "side": "buy",
+          "role": "near",
+          "shares": 376.8225092592593,
+          "avgPrice": 0.09307756400000777,
+          "bestPrice": 0.045,
+          "worstPrice": 0.132,
+          "slippage": 0.048077564000007775,
+          "usd": 35.073721222222225,
+          "levelsUsed": 7
+        }
+      ],
+      "exitProceedsUsd": -28.43773856481482,
+      "realizedPnlUsd": -14.411273250000004,
+      "exitExecEdge": -0.086,
+      "closeReason": "edge=-8.60c ≤ exit 1.0c"
+    },
     {
       "id": "t_mtm58a2k_ejc7pn",
       "status": "closed",
@@ -225,13 +258,6 @@
     }
   ],
   "equityCurve": [
-    {
-      "t": "2026-08-30T20:00:51.213Z",
-      "equity": 2610.23873,
-      "cash": 2757.88802,
-      "unrealized": -147.64929000000006,
-      "realized": 0
-    },
     {
       "t": "2026-08-30T20:15:35.017Z",
       "equity": 2611.67674,
@@ -3724,9 +3750,31 @@
       "cash": 2794.090708981481,
       "unrealized": -161.75440535185217,
       "realized": 22.176223666666665
+    },
+    {
+      "t": "2026-09-04T18:45:34.907Z",
+      "equity": 2615.2503004166656,
+      "cash": 2765.652970416666,
+      "unrealized": -150.4026700000004,
+      "realized": 7.764950416666661
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-09-04T18:45:39.349Z",
+      "message": "Scan done · opps=7 open=1 equity=$2615.25",
+      "level": "info"
+    },
+    {
+      "t": "2026-09-04T18:45:39.146Z",
+      "message": "CLOSE OpenAI's Astra released on...? September 5→September 6 pnl=$-14.41",
+      "level": "trade"
+    },
+    {
+      "t": "2026-09-04T18:45:34.907Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-09-04T18:30:49.449Z",
       "message": "Scan done · opps=4 open=2 equity=$2632.34",
@@ -4711,21 +4759,6 @@
       "t": "2026-09-03T23:30:50.370Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-09-03T23:15:38.797Z",
-      "message": "Scan done · opps=8 open=2 equity=$2569.26",
-      "level": "info"
-    },
-    {
-      "t": "2026-09-03T23:15:38.321Z",
-      "message": "OPEN OpenAI's Astra released on...? September 4→September 5 edge=11.25c cost=$-24.03 shares=213.58",
-      "level": "trade"
-    },
-    {
-      "t": "2026-09-03T23:15:33.607Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4733,5 +4766,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-09-04T18:30:45.335Z"
+  "lastScanAt": "2026-09-04T18:45:34.907Z"
 }
