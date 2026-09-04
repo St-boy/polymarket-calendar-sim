@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-09-04T19:00:52.100Z",
+  "updatedAt": "2026-09-04T19:15:36.986Z",
   "cashUsd": 2765.652970416666,
   "realizedPnlUsd": 7.764950416666661,
   "positions": [
@@ -62,8 +62,8 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -407.50636999999983,
-      "unrealizedPnlUsd": -149.61834999999996,
+      "markProceedsUsd": -411.3759400000001,
+      "unrealizedPnlUsd": -153.48792000000026,
       "entryExecEdge": 0.15004393890909073
     }
   ],
@@ -258,13 +258,6 @@
     }
   ],
   "equityCurve": [
-    {
-      "t": "2026-08-30T20:30:40.483Z",
-      "equity": 2623.54162,
-      "cash": 2757.88802,
-      "unrealized": -134.34640000000013,
-      "realized": 0
-    },
     {
       "t": "2026-08-30T20:45:33.846Z",
       "equity": 2614.7827799999995,
@@ -3757,9 +3750,26 @@
       "cash": 2765.652970416666,
       "unrealized": -149.61834999999996,
       "realized": 7.764950416666661
+    },
+    {
+      "t": "2026-09-04T19:15:34.305Z",
+      "equity": 2612.1650504166655,
+      "cash": 2765.652970416666,
+      "unrealized": -153.48792000000026,
+      "realized": 7.764950416666661
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-09-04T19:15:36.986Z",
+      "message": "Scan done · opps=2 open=1 equity=$2612.17",
+      "level": "info"
+    },
+    {
+      "t": "2026-09-04T19:15:34.305Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-09-04T19:00:52.099Z",
       "message": "Scan done · opps=2 open=1 equity=$2616.03",
@@ -4749,16 +4759,6 @@
       "t": "2026-09-04T00:00:17.011Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-09-03T23:47:15.984Z",
-      "message": "Scan done · opps=8 open=2 equity=$2591.25",
-      "level": "info"
-    },
-    {
-      "t": "2026-09-03T23:47:10.793Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4766,5 +4766,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-09-04T19:00:49.400Z"
+  "lastScanAt": "2026-09-04T19:15:34.305Z"
 }
