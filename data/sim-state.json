@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-25T09:49:42.380Z",
-  "updatedAt": "2026-09-04T15:30:45.623Z",
+  "updatedAt": "2026-09-04T15:45:47.961Z",
   "cashUsd": 2794.090708981481,
   "realizedPnlUsd": 22.176223666666665,
   "positions": [
@@ -62,8 +62,8 @@
         }
       ],
       "entryCostUsd": -257.88801999999987,
-      "markProceedsUsd": -411.79377000000045,
-      "unrealizedPnlUsd": -153.90575000000058,
+      "markProceedsUsd": -412.0192800000002,
+      "unrealizedPnlUsd": -154.13126000000034,
       "entryExecEdge": 0.15004393890909073
     },
     {
@@ -123,8 +123,8 @@
         }
       ],
       "entryCostUsd": -14.026465314814814,
-      "markProceedsUsd": -29.908348268518523,
-      "unrealizedPnlUsd": -15.881882953703709,
+      "markProceedsUsd": -38.73366096296297,
+      "unrealizedPnlUsd": -24.707195648148158,
       "entryExecEdge": 0.03722300279350989
     }
   ],
@@ -225,13 +225,6 @@
     }
   ],
   "equityCurve": [
-    {
-      "t": "2026-08-30T17:00:53.628Z",
-      "equity": 2625.35256,
-      "cash": 2757.88802,
-      "unrealized": -132.53546000000006,
-      "realized": 0
-    },
     {
       "t": "2026-08-30T17:15:38.018Z",
       "equity": 2616.1259199999995,
@@ -3724,9 +3717,26 @@
       "cash": 2794.090708981481,
       "unrealized": -169.7876329537043,
       "realized": 22.176223666666665
+    },
+    {
+      "t": "2026-09-04T15:45:42.956Z",
+      "equity": 2615.252253333332,
+      "cash": 2794.090708981481,
+      "unrealized": -178.8384556481485,
+      "realized": 22.176223666666665
     }
   ],
   "scanLog": [
+    {
+      "t": "2026-09-04T15:45:47.961Z",
+      "message": "Scan done · opps=4 open=2 equity=$2615.25",
+      "level": "info"
+    },
+    {
+      "t": "2026-09-04T15:45:42.956Z",
+      "message": "Scan started (order-book executable edges)",
+      "level": "info"
+    },
     {
       "t": "2026-09-04T15:30:45.623Z",
       "message": "Scan done · opps=4 open=2 equity=$2624.30",
@@ -4716,16 +4726,6 @@
       "t": "2026-09-03T20:30:41.644Z",
       "message": "Scan started (order-book executable edges)",
       "level": "info"
-    },
-    {
-      "t": "2026-09-03T20:15:48.117Z",
-      "message": "Scan done · opps=5 open=1 equity=$2597.26",
-      "level": "info"
-    },
-    {
-      "t": "2026-09-03T20:15:43.832Z",
-      "message": "Scan started (order-book executable edges)",
-      "level": "info"
     }
   ],
   "config": {
@@ -4733,5 +4733,5 @@
     "exitThresh": 0.01,
     "bankrollUsd": 2500
   },
-  "lastScanAt": "2026-09-04T15:30:42.202Z"
+  "lastScanAt": "2026-09-04T15:45:42.956Z"
 }
